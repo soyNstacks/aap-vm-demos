@@ -3,22 +3,22 @@
   hosts: all
   become: true
 
-tasks:
-- name: Create a group
-  ansible.builtin.group:
-  - name: developers
-    state: present
+  tasks:
+  - name: Create a group
+    ansible.builtin.group:
+    - name: developers
+      state: present
 
-  - name: Create dev_user 
-    ansible.builtin.user:
-      - name: dev_user
-        shell: /bin/bash  
-        append: true
-        groups: developers
+    - name: Create dev_user 
+      ansible.builtin.user:
+        - name: dev_user
+          shell: /bin/bash  
+          append: true
+          groups: developers
   
-  - name: Create an SSH key for dev_user
-    ansible.builtin.user:
-      - name: dev_user
-        generate_ssh_key: true  
-        ssh_key_bits: 2048  
-        ssh_key_file: .ssh/test_id_rsa 
+    - name: Create an SSH key for dev_user
+      ansible.builtin.user:
+        - name: dev_user
+          generate_ssh_key: true  
+          ssh_key_bits: 2048  
+          ssh_key_file: .ssh/test_id_rsa 
