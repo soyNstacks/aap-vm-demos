@@ -1,6 +1,7 @@
 --- 
 - name: Create a new user
-  hosts: all 
+  hosts: all
+  become: true
 
 tasks:
 - name: Create a group
