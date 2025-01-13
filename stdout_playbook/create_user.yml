@@ -1,7 +1,7 @@
 --- 
 - name: Create a new user
   hosts: localhost
-#  become: yes 
+  become: yes 
 #  become_user: root
 
   tasks:
