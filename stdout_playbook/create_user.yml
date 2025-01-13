@@ -2,7 +2,7 @@
 - name: Create a new user
   hosts: all
   become: true
-  become_method: su
+  become-user: root
 
   tasks:
     - name: Create a group
