@@ -4,7 +4,8 @@
   gather_facts: false
   tasks:
     - name: Hot-add CPU and Memory to a VM
-      ansible.builtin.import_role:
+      #ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: cloud.vmware_ops.provision_vm
       vars:
         provision_vm_name: "{{ vm_name }}"
