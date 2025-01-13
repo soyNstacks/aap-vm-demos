@@ -5,19 +5,19 @@
 
   tasks:
     - name: Create a group
-      ansible.builtin.group:
+      group:
         name: developers
         state: present
   
       - name: Create dev_user 
-        ansible.builtin.user:
+        user:
           name: dev_user
           shell: /bin/bash  
           append: true
           groups: developers
   
       - name: Create an SSH key for dev_user
-        ansible.builtin.user:
+        user:
           name: dev_user
           generate_ssh_key: true  
           ssh_key_bits: 2048  
