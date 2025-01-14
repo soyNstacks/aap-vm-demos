@@ -1,0 +1,37 @@
+{
+ "collection_info": {
+  "namespace": "cloud",
+  "name": "vmware_ops",
+  "version": "1.7.0",
+  "authors": [
+   "Ansible Cloud Content Team (@redhat-cop)"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "vmware",
+   "infrastructure"
+  ],
+  "description": "Collection to manage VMware",
+  "license": [],
+  "license_file": "LICENSE",
+  "dependencies": {
+   "vmware.vmware_rest": ">=2.3.1",
+   "community.vmware": ">=4.4.0",
+   "vmware.vmware": ">=1.6.0",
+   "community.general": ">=9.2.0",
+   "ansible.posix": ">=1.5.4"
+  },
+  "repository": "https://github.com/redhat-cop/cloud.vmware_ops",
+  "documentation": null,
+  "homepage": "https://github.com/redhat-cop/cloud.vmware_ops",
+  "issues": "https://github.com/redhat-cop/cloud.vmware_ops/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "79b2fcea65594712b19737781fff2acfbcf1fd359891f5219c7f838d943aa1a8",
+  "format": 1
+ },
+ "format": 1
+}

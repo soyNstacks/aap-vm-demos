@@ -1,0 +1,38 @@
+---
+name: Ansible Integration Test
+on: # yamllint disable-line rule:truthy
+  pull_request:
+  merge_group:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  ansible_integration_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update pip, git
+        run: |
+          set -euxo pipefail
+          sudo apt-get update
+
+          # recent version of podman has a bug. Fix is waiting deployment
+          # see https://github.com/actions/runner-images/issues/7753
+          sudo apt-get install podman=3.4.4+ds1-1ubuntu1 --allow-downgrades
+
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          path: ansible_collections/cloud/vmware_ops
+
+      - name: Run
+        run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+          make integration
+        working-directory: ansible_collections/cloud/vmware_ops
+        env:
+          ANSIBLE_COLLECTIONS_PATH: "${{ github.workspace }}"

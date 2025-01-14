@@ -1,0 +1,45 @@
+download_url: https://console.redhat.com/api/automation-hub/v3/plugin/ansible/content/validated/collections/artifacts/cloud-vmware_ops-1.7.0.tar.gz
+format_version: 1.0.0
+name: vmware_ops
+namespace: cloud
+server: https://console.redhat.com/api/automation-hub/content/validated/
+signatures:
+- pubkey_fingerprint: 39B5D759361A97464C564A8FE1A4BD708A828AAD
+  pulp_created: '2024-12-19T21:15:50.808386Z'
+  signature: '-----BEGIN PGP SIGNATURE-----
+
+    Version: GnuPG v1
+
+
+    iQIcBAABCAAGBQJnZIzyAAoJEOGkvXCKgoqtMZ0QAKKfShr+c4Bu2rzRLeGB3z88
+
+    kSy1F/PszAjv1XkdYJCIVq/xng2Mm9lr6Yr3YiHzfxacsvXihYWiRNKbWHgznxq3
+
+    F2tx4l9z2qLZEzm25JRRIEH63IXXyJYQ6SDltYcQvwQyWOXf44LvvAiYiG/mGf8v
+
+    /TD7XTfGxW/QrkDTGEAK3Wgq7I/sgU1PR5kBOVhCtzoUPkR/BVveA3PZ4suzlF/Y
+
+    kbLJ+g8/Yl1Hvg3cBMZg0C4VjE0ZAvRdAo16Z+kyN2Ox9EUvK/xM5G8R601q/N1h
+
+    CYuVDujKf+TF9x7b+eIrqdf3QsMcrX7GMd5NAO7p0DBaiX//g8umvq1XbpNwKUrB
+
+    +lprQKlrSZ9MqxM6l3vT4zbtXPFd837nnEieMaUDUnycN82V4VKmEKPA5bKYrewy
+
+    M4+bYtr7SPvGAbiO7n964J3ABTJ+dwaUZMaLYP33JsyBG23LyaONErS9fyzBMcYa
+
+    NIlM4NGQlG+dG/WKQSnJvnO1OD1QxIqMv2KC9XREoEM+t7KDrbH9T+UvSuPxHYGb
+
+    bKu2mxVt9AfuVDcXugESV9WCpsMqz8qdf7e2Gjwg2CyrjRvxDYE/pEaEZ5mU3E+j
+
+    mDKaHS7Mx5Q/4LWqvYJRGBeUq+/Wx3pMcaTbLcNkEd1dYwPplzfb1VlNFI4SjVDt
+
+    1J0ZtM6wec02wrlqc+UP
+
+    =nI+B
+
+    -----END PGP SIGNATURE-----
+
+    '
+  signing_service: null
+version: 1.7.0
+version_url: /api/automation-hub/content/validated/v3/plugin/ansible/content/validated/collections/index/cloud/vmware_ops/versions/1.7.0/

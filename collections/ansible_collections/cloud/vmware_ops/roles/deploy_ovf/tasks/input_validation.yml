@@ -1,0 +1,35 @@
+---
+- name: Check Mandatory Variables Are Defined
+  ansible.builtin.assert:
+    that:
+      - deploy_ovf_hostname is defined
+      - deploy_ovf_username is defined
+      - deploy_ovf_password is defined
+      - deploy_ovf_datacenter_name is defined
+      - deploy_ovf_vm_name is defined
+    quiet: true
+    fail_msg: Variable must be set when using this role.
+
+- name: Check Non-Library OVF Deployment Variables
+  ansible.builtin.assert:
+    that: >-
+      (deploy_ovf_url is defined and deploy_ovf_template is not defined) or
+      (deploy_ovf_url is not defined and deploy_ovf_template is defined)
+    quiet: true
+    fail_msg: One of deploy_ovf_url or deploy_ovf_template is required when deploy_ovf_library is not used.
+  when: deploy_ovf_library is not defined
+
+- name: Check Content Library Deployment Variables
+  ansible.builtin.assert:
+    that: deploy_ovf_template is defined
+    quiet: true
+    fail_msg: deploy_ovf_template is required when deploy_ovf_library is defined.
+  when: deploy_ovf_library is defined
+
+- name: Check Datastore Variables
+  ansible.builtin.assert:
+    that: >-
+      deploy_ovf_datastore is defined or
+      (deploy_ovf_datastore_cluster is defined and deploy_ovf_library is defined)
+    quiet: true
+    fail_msg: The datastore must be specified unless deploying from a library and using a datastore cluster.

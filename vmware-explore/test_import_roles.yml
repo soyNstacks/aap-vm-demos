@@ -1,0 +1,8 @@
+---
+- name: Hot-Add CPU and Memory to VMs
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Hot-add CPU and Memory to a VM
+      ansible.builtin.import_role:
+        name: cloud.vmware_ops.provision_vm

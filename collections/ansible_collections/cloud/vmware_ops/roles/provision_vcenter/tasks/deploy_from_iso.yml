@@ -1,0 +1,33 @@
+---
+- name: Mount vCSA ISO as Read-Only
+  ansible.builtin.include_tasks: "{{ item }}"
+  with_first_found:
+    - files:
+        - mount_{{ ansible_os_family | lower }}.yml
+        - mount_default.yml
+      paths:
+        - os_specific_iso_actions
+
+- name: Template Installer Config JSON
+  ansible.builtin.template:
+    src: vcsa_deployment_config.json.j2
+    dest: /tmp/vcsa_deployment_config.json
+    mode: "0600"
+
+# library libnsl is required but no longer included on
+# rhel 8+
+- name: Install Required Libraries For OVFTool
+  ansible.builtin.package:
+    name: libnsl
+    state: present
+  when: ansible_os_family == 'RedHat'
+  become: true
+
+- name: Deploy vCSA With Local Log Written To /tmp/vcsa.log
+  ansible.builtin.shell: >-
+    ./vcsa-deploy install -v --accept-eula --no-ssl-certificate-verification
+    --acknowledge-ceip /tmp/vcsa_deployment_config.json > /tmp/vcsa.log 2>&1
+  args:
+    chdir: >-
+      {{ provision_vcenter_vcsa_iso_bin_dir[(ansible_os_family | lower)] |
+      default(provision_vcenter_vcsa_iso_bin_dir['default']) }}

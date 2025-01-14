@@ -1,0 +1,21 @@
+---
+provision_virtual_esxi_hostname: "{{ vmware_ops_collection_hostname }}"
+provision_virtual_esxi_username: "{{ vmware_ops_collection_username }}"
+provision_virtual_esxi_password: "{{ vmware_ops_collection_password }}"
+provision_virtual_esxi_validate_certs: "{{ vmware_ops_collection_validate_certs }}"
+provision_virtual_esxi_port: "{{ vmware_ops_collection_port }}"
+
+# hardware defaults are chosen based on the minimum requirements to run vCenter,
+# plus a little bit extra for the ESXi system
+# https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-vcenter-upgrade/GUID-752FCA83-1A9B-499E-9C65-D5625351C0B5.html
+provision_virtual_esxi_memory_mb: 18000
+provision_virtual_esxi_cpus: 4
+provision_virtual_esxi_disks:
+  - size_gb: 100
+    type: thin
+    autoselect_datastore: true
+provision_virtual_esxi_networks:
+  - name: VM Network
+    device_type: vmxnet3
+    type: dhcp
+provision_virtual_esxi_boot_firmware: bios

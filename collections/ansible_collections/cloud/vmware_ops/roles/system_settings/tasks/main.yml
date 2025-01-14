@@ -1,0 +1,51 @@
+- name: Import Collection Level Vars
+  ansible.builtin.include_vars:
+    file: "{{ role_path }}/../../vars/main.yml"
+
+- name: Configure ntpd
+  ansible.builtin.include_tasks: ntpd.yml
+
+- name: Configure DNS
+  ansible.builtin.include_tasks: dns.yml
+
+- name: Configure proxy
+  ansible.builtin.include_tasks: proxy.yml
+
+- name: Configure security features
+  ansible.builtin.include_tasks: security.yml
+
+- name: Set the timesync mode
+  vmware.vmware_rest.appliance_timesync:
+    vcenter_hostname: "{{ system_settings_hostname | d(omit) }}"
+    vcenter_password: "{{ system_settings_password | d(omit) }}"
+    vcenter_username: "{{ system_settings_username | d(omit) }}"
+    vcenter_validate_certs: "{{ system_settings_validate_certs | d(omit) }}"
+    mode: "{{ system_settings_timesync_mode }}"
+  when: system_settings_timesync_mode is defined
+
+- name: Set timezone
+  vmware.vmware_rest.appliance_system_time_timezone:
+    vcenter_hostname: "{{ system_settings_hostname | d(omit) }}"
+    vcenter_password: "{{ system_settings_password | d(omit) }}"
+    vcenter_username: "{{ system_settings_username | d(omit) }}"
+    vcenter_validate_certs: "{{ system_settings_validate_certs | d(omit) }}"
+    name: "{{ system_settings_timezone }}"
+  when: system_settings_timezone is defined
+
+- name: Global FIPS mode
+  vmware.vmware_rest.appliance_system_globalfips:
+    vcenter_hostname: "{{ system_settings_hostname | d(omit) }}"
+    vcenter_password: "{{ system_settings_password | d(omit) }}"
+    vcenter_username: "{{ system_settings_username | d(omit) }}"
+    vcenter_validate_certs: "{{ system_settings_validate_certs | d(omit) }}"
+    enabled: "{{ system_settings_global_fips }}"
+  when: system_settings_global_fips is defined
+
+- name: Resize the storage
+  vmware.vmware_rest.appliance_system_storage:
+    vcenter_hostname: "{{ system_settings_hostname | d(omit) }}"
+    vcenter_password: "{{ system_settings_password | d(omit) }}"
+    vcenter_username: "{{ system_settings_username | d(omit) }}"
+    vcenter_validate_certs: "{{ system_settings_validate_certs | d(omit) }}"
+    state: resize
+  when: "system_settings_resize_storage | bool"

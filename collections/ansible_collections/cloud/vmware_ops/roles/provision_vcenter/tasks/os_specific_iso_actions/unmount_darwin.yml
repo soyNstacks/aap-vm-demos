@@ -1,0 +1,4 @@
+---
+- name: Detach vCSA ISO
+  ansible.builtin.command: "hdiutil detach {{ _attach_iso.stdout_lines[0] | split(' ') | first }}"
+  become: true

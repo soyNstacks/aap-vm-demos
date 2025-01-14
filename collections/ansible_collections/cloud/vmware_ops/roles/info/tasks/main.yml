@@ -1,0 +1,44 @@
+---
+- name: Import Collection Level Vars
+  ansible.builtin.include_vars:
+    file: "{{ role_path }}/../../vars/main.yml"
+
+- name: License info
+  ansible.builtin.include_tasks: license_info.yml
+  when: info_license
+  tags:
+    - license
+
+- name: Appliance info
+  ansible.builtin.include_tasks: appliance_info.yml
+  when: info_appliance
+  tags:
+    - appliance
+
+- name: Guest info
+  ansible.builtin.include_tasks: guest_info.yml
+  when: info_guest
+  tags:
+    - guest
+
+- name: Cluster info
+  ansible.builtin.include_tasks: cluster_info.yml
+  when: info_cluster
+  tags:
+    - cluster
+
+- name: Storage info
+  ansible.builtin.include_tasks: storage_info.yml
+  when: info_storage
+  tags:
+    - storage
+
+- name: Expose Gathered Facts As Variable vmware_ops_info_outputs
+  ansible.builtin.set_fact:
+    vmware_ops_info_outputs:
+      license: "{{ __license.licenses | default([]) }}"
+      appliance: "{{ __appliance.appliance | default({}) }}"
+      guest: "{{ __guests.guests | default([]) }}"
+      cluster: "{{ __clusters_info.results | default([]) | map(attribute='clusters') }}"
+      storage: "{{ __storage_policy.spbm_profiles | default([]) }}"
+  when: info_expose_outputs_as_variable

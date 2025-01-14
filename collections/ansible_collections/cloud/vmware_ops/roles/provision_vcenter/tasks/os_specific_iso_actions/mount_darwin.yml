@@ -1,0 +1,7 @@
+---
+- name: Mount vCSA ISO
+  ansible.builtin.command: >-
+    hdiutil attach -readonly -mountroot "{{ provision_vcenter_iso_mount_point }}"
+    "{{ provision_vcenter_iso_path }}"
+  register: _attach_iso
+  become: true

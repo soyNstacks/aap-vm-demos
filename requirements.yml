@@ -5,4 +5,7 @@ collections:
 - name: containers.podman
 - name: sabre1041.eda
 - name: community.crypto
-#- name: cloud.vmware_ops
+- name: cloud.vmware_ops
+  #source: https://hhwjd-aap.apps.cluster-hhwjd.hhwjd.sandbox60.opentlc.com/pulp_ansible/galaxy/validated/
+
+

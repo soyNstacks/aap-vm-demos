@@ -1,0 +1,45 @@
+download_url: https://console.redhat.com/api/automation-hub/v3/plugin/ansible/content/published/collections/artifacts/amazon-aws-9.1.1.tar.gz
+format_version: 1.0.0
+name: aws
+namespace: amazon
+server: https://console.redhat.com/api/automation-hub/content/published/
+signatures:
+- pubkey_fingerprint: 39B5D759361A97464C564A8FE1A4BD708A828AAD
+  pulp_created: '2025-01-13T19:19:20.830679Z'
+  signature: '-----BEGIN PGP SIGNATURE-----
+
+    Version: GnuPG v1
+
+
+    iQIcBAABCAAGBQJnhWcuAAoJEOGkvXCKgoqtwhAQAJl4pkxkKidALG29oS1GQtPT
+
+    4rRHAnRXEgjgftX0NvVII8OB6dX1dSBggO2TJ7xOyiYygVugjQ9hD7tBf5AMc3wi
+
+    rGZHOlnN/7l5KQON4cnFINsWRjm8E8rcHgm5KMjI0tOD7rfQ2nCS8KodAWqCsjld
+
+    Edvk5Oi/UZidK3B+HdxAv19t3eg4ySN0Z2kN9YU85Q6XGZoCyBS9ABD8ZRV20EDh
+
+    RQEwsjqAY5WfiDNRJlqfDOIfjqAOFYAWUtwru9Hs4V4t49YQAXz6PzFDwMO1I4Z/
+
+    9Zulm/SHAO9RPYy0wqnIuI6B5pc7/w5H1mJY2cTqrniOYbaEKDNzJJ10nU7LPZ16
+
+    HjP+7d4Q8QaslwNaPrc22QM+eFzuuDB4EpRKvM7wVXTpYnTkWUu8EYVcopvHc3JF
+
+    j61hHLSttkfv3g9JRSqpuoXUJH9ypM9K7ksmaJg1mB0mW4+zPMpRabRD/eB+o8R5
+
+    vtfqvjW3VKSp0AtVpKItLN5afzZ/Uk2UEnhwUIcxH8Xy8aak5c8Y1NrlQPvwsFAu
+
+    5jEKwzwBd43hH6niNT7cGAFPGocIa9K3rSTRmdzMx7JznbH9m3FDlKwUAE4pkb6c
+
+    AR7RX/UlLMah2fNOF+92DV5KA91XX4gWJli8enaS4xi7v1xbBbLRqEZCvL6vtgUi
+
+    W7oF5Pq/YDDUwlgyyjIw
+
+    =ty45
+
+    -----END PGP SIGNATURE-----
+
+    '
+  signing_service: null
+version: 9.1.1
+version_url: /api/automation-hub/content/published/v3/plugin/ansible/content/published/collections/index/amazon/aws/versions/9.1.1/
