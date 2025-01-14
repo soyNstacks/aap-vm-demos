@@ -1,3 +1,3 @@
-ansible.cfg
+localhost_ansible.cfg
 ansible-navigator.log
 requirements.yml
